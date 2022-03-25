@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modules>
+
+    <app name="report_doanhthu"
+         active = "1"
+         class="com.core.module.ReportDoanhThu"
+         date_format = "yyyyMMdd"
+         min_delay = "10000"
+         max_delay = "20000"
+         from_minute = "420"
+         to_minute = "480"
+    >
+    </app>
+
+    <app name="th_doanhthu"
+         active = "1"
+         class="com.core.module.JobTHDoanhThu"
+         date_format = "yyyyMMdd"
+         min_delay = "10000"
+         max_delay = "20000"
+         from_minute = "180"
+         to_minute = "210"
+    >
+    </app>
+
+</modules>
