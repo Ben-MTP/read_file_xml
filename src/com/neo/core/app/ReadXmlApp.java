@@ -18,6 +18,7 @@ public class ReadXmlApp {
         reader.setFileName(path_user);
         reader.init();
 
-        HashMap<String, HashMap<String, Object>> hConfig = reader.getH
+        HashMap<String, HashMap<String, Object>> hConfig = reader.getHashObjWithKey("modules", "app", "name");
+        System.out.println(hConfig);
     }
 }

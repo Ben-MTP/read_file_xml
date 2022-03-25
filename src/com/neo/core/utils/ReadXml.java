@@ -128,25 +128,46 @@ public class ReadXml {
         return matrix;
     }
 
+    /**
+     * GetHashObjectWithKey
+     *      Lấy ra một đối tượng HashObject với key truyền vào ban đầu.
+     *      Trả về một HashMap các HashMap.
+     *
+     * Chuyển config từ file xml thành Object HashMap -> dùng cho các việc config khác.
+     * @param parentNode
+     * @param childNode
+     * @param key
+     * @return
+     */
     public HashMap<String, HashMap<String, Object>> getHashObjWithKey(String parentNode, String childNode, String key){
         HashMap<String, HashMap<String, Object>> result = new HashMap<>();
-        NodeList parent = doc.getElementsByTagName(parentNode);
-        NodeList childs = parent.item(0).getChildNodes();
-        int j = 0;
-        String keyValue = key;
-        for(int i = 0; i < childs.getLength(); i++){
-            Node childLine = childs.item(i);
-            if(!childLine.getNodeName().equalsIgnoreCase(childNode)){
-                continue;
+        try {
+            NodeList parent = doc.getElementsByTagName(parentNode);
+            NodeList childs = parent.item(0).getChildNodes();
+            int j = 0;
+            String keyValue = key;
+            for(int i = 0; i < childs.getLength(); i++){
+                Node childLine = childs.item(i);
+                if(!childLine.getNodeName().equalsIgnoreCase(childNode)){
+                    continue;
+                }
+                int num_attribute = childLine.getAttributes().getLength();
+                HashMap<String, Object> line = new HashMap<>();
+                keyValue = "";
+                for(j = 0; j < num_attribute; j++){
+                    Node one = childLine.getAttributes().item(j);
+                    if(one.getNodeName().equals(key)){
+                        keyValue=one.getNodeValue();
+                    }
+                    System.out.println("-------> " + one.getNodeName() + "=" + one.getNodeValue());
+                    line.put(one.getNodeName(), one.getNodeValue());
+                }
+                result.put(keyValue, line);
             }
-            int num_attribute = childLine.getAttributes().getLength();
-            HashMap<String, Object> line = new HashMap<>();
-            keyValue = "";
-            for(j = 0; j < num_attribute; j++){
-                Node one = childLine.getAttributes().item(j);
-            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
-
+        return result;
     }
 
 
