@@ -1,0 +1,20 @@
+{
+	th_doanhthu={
+		from_minute=180,
+		max_delay=20000,
+		name=th_doanhthu,
+		to_minute=210,
+		active=1,
+		date_format=yyyyMMdd,
+		class=com.core.module.JobTHDoanhThu,
+		min_delay=10000},
+	report_doanhthu={
+		from_minute=420,
+		max_delay=20000,
+		name=report_doanhthu,
+		to_minute=480,
+		active=1,
+		date_format=yyyyMMdd,
+		class=com.core.module.ReportDoanhThu,
+		min_delay=10000}
+}

@@ -20,5 +20,13 @@ public class ReadXmlApp {
 
         HashMap<String, HashMap<String, Object>> hConfig = reader.getHashObjWithKey("modules", "app", "name");
         System.out.println(hConfig);
+
+        // Khởi tạo các job chính:
+        HashMap<String, Object> param = new HashMap<>();
+        param = hConfig.get("th_doanhthu");
+        System.out.println(param);
+
+
+
     }
 }
